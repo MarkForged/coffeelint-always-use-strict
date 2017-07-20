@@ -18,7 +18,6 @@ npm install --save-dev coffeelint-always-use-strict
 
 Add one of the following rules to your `coffeelint.json` file:
 
-
 ```
 "strict": {
     "level": "error",
