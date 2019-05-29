@@ -1,6 +1,6 @@
 {
   "name": "coffeelint-always-use-strict",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "description": "CoffeeLint rule that enforces usage of strict mode",
   "keywords": [
     "coffee",
@@ -20,7 +20,8 @@
   "repository": "za-creature/coffeelint-always-use-strict",
   "authors": [
     "Radu Dan <za_creature@yahoo.com> (https://github.com/za-creature)",
-    "Jan Raasch <jan@janraasch.com> (http://janraasch.com)"
+    "Jan Raasch <jan@janraasch.com> (http://janraasch.com)",
+    "Dan Taub <mdan@markforged.com>"
   ],
   "files": [
     "index.js"
@@ -32,14 +33,11 @@
     "test-all": "mocha --opts mocha.opts --reporter mocha-junit-reporter test.coffee",
     "coverage": "istanbul report lcov"
   },
-  "dependencies": {
-    "coffeelint-never-use-strict": "latest"
-  },
   "devDependencies": {
     "chai": "^4.1.0",
-    "coffee-coverage": "^2.0.1",
-    "coffee-script": "^1.12.7",
-    "coffeelint": "^1.16.0",
+    "coffee-coverage": "^3.0.1",
+    "coffeescript": "^2.4.1",
+    "coffeelint": "^2.1.0",
     "coffeelint-advanced-colon-assignment-spacing": "^1.0.0",
     "coffeelint-always-use-strict": "latest",
     "coffeelint-braces-padding": "^0.1.5",

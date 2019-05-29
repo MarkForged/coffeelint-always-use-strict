@@ -12,7 +12,15 @@ class AlwaysUseStrict
             """
 
     lintAST: ({expressions}, {createError}) ->
-        [first, ...] = expressions
+        if not expressions.length
+            return
+        [first, rest...] = expressions
+        # skip comments if they exist
+        while first?.base?.constructor?.name is 'PassthroughLiteral' and \
+              rest.length and \ # not at end of block
+              not first.base.value.length # not a backtick expression
+
+            [first, rest] = rest
         if \
                 first.constructor.name isnt "Value" or \
                 first.base.constructor.name isnt "StringLiteral" or \

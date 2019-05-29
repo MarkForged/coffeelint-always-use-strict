@@ -25,7 +25,7 @@ coffeeCoverage.register({
 """TESTS"""
 
 
-{nodes} = require "coffee-script"
+{nodes} = require "coffeescript"
 AlwaysUseStrict = require "./index.coffee"
 
 
@@ -53,6 +53,20 @@ describe "always-use-strict", ->
             foo()
         """).should.have.length(1)
 
+        lint("""
+            foo = ->
+                return 1
+            'use strict'
+            foo()
+        """).should.have.length(1)
+
+        lint("""
+            `console.log('js code')`
+            'use strict'
+            foo = ->
+                return 1
+            foo()
+        """).should.have.length(1)
 
     it "shuts up when in strict mode", ->
         lint("""
@@ -65,6 +79,27 @@ describe "always-use-strict", ->
 
         lint("""
             # some comment
+            "use strict"
+            foo = ->
+                return 1
+
+            foo()
+        """).should.have.length(0)
+
+        lint("""
+            # some comment
+            # another comment
+            "use strict"
+            foo = ->
+                return 1
+
+            foo()
+        """).should.have.length(0)
+
+        lint("""
+            ### block comment
+            # comment
+            ###
             "use strict"
             foo = ->
                 return 1
