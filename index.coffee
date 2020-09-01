@@ -12,7 +12,7 @@ class AlwaysUseStrict
             """
 
     lintAST: ({expressions}, {createError}) ->
-        if not expressions.length
+        if not expressions?.length
             return
         [first, rest...] = expressions
         # skip comments if they exist
